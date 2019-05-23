@@ -1,0 +1,125 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Dishes API",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Dishes",
+      "description": "Everything about dishes"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/dishes": {
+      "get": {
+        "tags": ["Dishes"],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/dishes/add": {
+      "post": {
+        "tags": ["Dishes"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/dishes/{id}": {
+      "get": {
+        "tags": ["Dishes"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/dishes/{id}/update": {
+      "patch": {
+        "tags": ["Dishes"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body"
+          },
+          {
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/dishes/{id}/delete": {
+      "delete": {
+        "tags": ["Dishes"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body"
+          },
+          {
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Dish": {
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "dishesName": {
+          "type": "string"
+        },
+        "isActive": {
+          "type": "boolean"
+        },
+        "createAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        }
+      }
+    }
+  }
+}

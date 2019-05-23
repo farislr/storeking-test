@@ -8,6 +8,8 @@ var mongoose = require('mongoose')
 mongoose.connect(env.MONGODB_URL, {
   useNewUrlParser: true,
 })
+var swaggerUi = require('swagger-ui-express')
+var swaggerDoc = require('./swagger.json')
 
 var routes = require('./routes')
 
@@ -19,5 +21,6 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 app.use('/', routes)
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc))
 
 module.exports = app
